@@ -1,0 +1,22 @@
+<label for="inputFile">Upload Excel file</label><br>
+<input type="file" id="inputFile" appUploadExcel (eventEmitter)="DataFromEventEmitter($event)" >
+<hr>
+<table>
+    <tr>
+      <th>Seriel No.</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Gender</th>
+      <th>Country</th>
+    </tr>
+    <tr *ngIf="excelData===null">
+        <p>No data to display</p>
+    </tr>
+    <tr *ngFor="let row of excelData">
+      <td>{{row.sl_no}}</td>
+      <td>{{row.firstname}}</td>
+      <td>{{row.lastname}}</td>
+      <td>{{row.gender}}</td>
+      <td>{{row.country? row.country:'N/A'}}</td>
+    </tr>
+  </table>
