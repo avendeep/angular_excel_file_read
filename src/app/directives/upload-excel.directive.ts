@@ -19,6 +19,7 @@ onChange(target:HTMLInputElement){
   this.excelObservable = new Observable((subscriber: Subscriber<any>)=>{
     this.readFile(file, subscriber);
   })
+
   this.excelObservable.subscribe((data)=>{
     this.eventEmitter.emit(data)
   })

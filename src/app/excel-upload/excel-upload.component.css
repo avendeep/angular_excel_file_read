@@ -13,3 +13,8 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .input-label{
+    font-size: medium;
+    margin-bottom: 5px;
+  }
