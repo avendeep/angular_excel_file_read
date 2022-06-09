@@ -22,13 +22,13 @@
   </tr>
 
   <tr *ngFor="let row of validatedData">
-    <td [ngClass]="[ row.sl_no ? 'invalid' : 'invalid']">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
-    <td [class.invalid]="row.firstname ? false : true">{{ row.firstname ? row.firstname : "INVALID" }}</td>
-    <td [class.invalid]="row.lastname ? false : true">{{ row.lastname ? row.lastname : "INVALID" }}</td>
-    <td [class.invalid]="row.gender ? false : true">{{ row.gender ? row.gender : "INVALID" }}</td>
-    <td [class.invalid]="row.country ? false : true">{{ row.country ? row.country : "INVALID" }}</td>
-    <td [class.invalid]="row.mobile ? false : true">{{row.mobile ? row.mobile : "INVALID" }}</td>
-    <td [class.invalid]="row.pincode ? false : true">{{ row.pincode ? row.pincode : "INVALID" }}</td>
+    <td [className]="row.sl_no ==='INVALID' ? 'invalid' : ''">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
+    <td [className]="row.firstname==='INVALID' ? 'invalid' : ''">{{ row.firstname ? row.firstname : "INVALID" }}</td>
+    <td [className]="row.lastname ==='INVALID' ? 'invalid' : ''">{{ row.lastname ? row.lastname : "INVALID" }}</td>
+    <td [className]="row.gender ==='INVALID' ? 'invalid' : ''">{{ row.gender ? row.gender : "INVALID" }}</td>
+    <td [className]="row.country ==='INVALID' ? 'invalid' : ''">{{ row.country ? row.country : "INVALID" }}</td>
+    <td [className]="row.mobile ==='INVALID' ? 'invalid' : ''">{{row.mobile ? row.mobile : "INVALID" }}</td>
+    <td [className]="row.pincode ==='INVALID' ? 'invalid' : ''">{{ row.pincode ? row.pincode : "INVALID" }}</td>
   </tr>
   <p>Total Rows: {{excelData.length}}</p>
 </table>
