@@ -9,6 +9,7 @@ export class ExcelUploadComponent implements OnInit {
 
   excelData=null;
   validatedData=[];
+  isTableValid:boolean=true;
 
   constructor() { }
 
@@ -38,6 +39,7 @@ export class ExcelUploadComponent implements OnInit {
    if(Number.isInteger(number) && number>0){
      return true;
    }else{
+     this.isTableValid=false;
      return false;
    }
   }
@@ -46,6 +48,7 @@ export class ExcelUploadComponent implements OnInit {
     if(!isNaN(string)){
        return false;
     }else{
+      this.isTableValid=false;
       return true;
     }
   }
@@ -53,13 +56,19 @@ export class ExcelUploadComponent implements OnInit {
   checkMobileNum(number:any){
     let mob = /^[1-9]{1}[0-9]{9}$/;
     if (mob.test(number) == false) {
+      this.isTableValid=false
         return false;
     }
     return true;
   }
 
-  checkPinCode(pin){
-    return /^(\d{4}|\d{6})$/.test(pin);
+  checkPinCode(pin:any){
+    let pinpattern = /^(\d{4}|\d{6})$/;
+    if(pinpattern.test(pin) == false){
+      this.isTableValid=false;
+      return false;
+    }
+    return true;
   }
 
 

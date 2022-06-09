@@ -30,5 +30,11 @@
     <td [className]="row.mobile ==='INVALID' ? 'invalid' : ''">{{row.mobile ? row.mobile : "INVALID" }}</td>
     <td [className]="row.pincode ==='INVALID' ? 'invalid' : ''">{{ row.pincode ? row.pincode : "INVALID" }}</td>
   </tr>
-  <p>Total Rows: {{excelData.length}}</p>
+ 
 </table>
+
+<div>
+  <p>Total Rows: {{validatedData.length}}</p><br>
+  <p *ngIf="!isTableValid" class="invalid">Table contains some invalid data.</p>
+</div>
+
