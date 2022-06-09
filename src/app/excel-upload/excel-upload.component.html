@@ -22,13 +22,13 @@
   </tr>
 
   <tr *ngFor="let row of validatedData">
-    <td [className]="row.sl_no ==='INVALID' ? 'invalid' : ''">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
-    <td [className]="row.firstname==='INVALID' ? 'invalid' : ''">{{ row.firstname ? row.firstname : "INVALID" }}</td>
-    <td [className]="row.lastname ==='INVALID' ? 'invalid' : ''">{{ row.lastname ? row.lastname : "INVALID" }}</td>
-    <td [className]="row.gender ==='INVALID' ? 'invalid' : ''">{{ row.gender ? row.gender : "INVALID" }}</td>
-    <td [className]="row.country ==='INVALID' ? 'invalid' : ''">{{ row.country ? row.country : "INVALID" }}</td>
-    <td [className]="row.mobile ==='INVALID' ? 'invalid' : ''">{{row.mobile ? row.mobile : "INVALID" }}</td>
-    <td [className]="row.pincode ==='INVALID' ? 'invalid' : ''">{{ row.pincode ? row.pincode : "INVALID" }}</td>
+    <td [className]="row.sl_no ==='INVALID' || row.sl_no === undefined? 'invalid' : ''">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
+    <td [className]="row.firstname==='INVALID' || row.firstname === undefined ? 'invalid' : ''">{{ row.firstname ? row.firstname : "INVALID" }}</td>
+    <td [className]="row.lastname ==='INVALID' || row.lastname === undefined ? 'invalid' : ''">{{ row.lastname ? row.lastname : "INVALID" }}</td>
+    <td [className]="row.gender ==='INVALID' || row.gender === undefined? 'invalid' : ''">{{ row.gender ? row.gender : "INVALID" }}</td>
+    <td [className]="row.country === 'INVALID' || row.country === undefined ? 'invalid' : ''">{{ row.country ? row.country : "INVALID" }}</td>
+    <td [className]="row.mobile ==='INVALID' || row.mobile === undefined? 'invalid' : ''">{{row.mobile ? row.mobile : "INVALID" }}</td>
+    <td [className]="row.pincode ==='INVALID' || row.pincode === undefined ? 'invalid' : ''">{{ row.pincode ? row.pincode : "INVALID" }}</td>
   </tr>
  
 </table>
