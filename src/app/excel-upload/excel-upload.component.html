@@ -17,6 +17,8 @@
     <th>Lastname</th>
     <th>Gender</th>
     <th>Country</th>
+    <th>Mobile</th>
+    <th>pincode</th>
   </tr>
 
   <tr *ngFor="let row of excelData">
@@ -25,6 +27,8 @@
     <td>{{ row.lastname ? row.lastname : "N/A" }}</td>
     <td>{{ row.gender ? row.gender : "N/A" }}</td>
     <td>{{ row.country ? row.country : "N/A" }}</td>
+    <td>{{row.mobile ? row.mobile : "INVALID" }}</td>
+    <td>{{ row.pincode ? row.pincode : "N/A" }}</td>
   </tr>
   <p>Total Rows: {{excelData.length}}</p>
 </table>

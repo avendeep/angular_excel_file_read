@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ExcelUploadComponent implements OnInit {
 
   excelData=null;
+  validatedData=[];
 
   constructor() { }
 
@@ -17,6 +18,22 @@ export class ExcelUploadComponent implements OnInit {
   DataFromEventEmitter(data){
     console.log(data)
     this.excelData= data
+
+    for(let item of this.excelData){
+       this.validatedData.push({
+         sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no:'INVALID' ),
+       })
+    }
+
+    console.log(this.validatedData)
+  }
+
+  checkPositiveInt(number:number){
+   if(Number.isInteger(number) && number>0){
+     return true;
+   }else{
+     return false;
+   }
   }
 
 }
