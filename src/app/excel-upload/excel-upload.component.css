@@ -4,7 +4,7 @@ table {
     width: 100%;
   }
   
-  td, th {
+  /* td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -17,4 +17,10 @@ table {
   .input-label{
     font-size: medium;
     margin-bottom: 5px;
+  } */
+
+  .invalid{
+    border: 1px solid red;
+    color: black;
+    background-color: lightsalmon;
   }

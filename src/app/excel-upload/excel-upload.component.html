@@ -21,14 +21,14 @@
     <th>pincode</th>
   </tr>
 
-  <tr *ngFor="let row of excelData">
-    <td>{{ row.sl_no ? row.sl_no : "N/A" }}</td>
-    <td>{{ row.firstname ? row.firstname : "N/A" }}</td>
-    <td>{{ row.lastname ? row.lastname : "N/A" }}</td>
-    <td>{{ row.gender ? row.gender : "N/A" }}</td>
-    <td>{{ row.country ? row.country : "N/A" }}</td>
-    <td>{{row.mobile ? row.mobile : "INVALID" }}</td>
-    <td>{{ row.pincode ? row.pincode : "N/A" }}</td>
+  <tr *ngFor="let row of validatedData">
+    <td [ngClass]="[ row.sl_no ? 'invalid' : 'invalid']">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
+    <td [class.invalid]="row.firstname ? false : true">{{ row.firstname ? row.firstname : "INVALID" }}</td>
+    <td [class.invalid]="row.lastname ? false : true">{{ row.lastname ? row.lastname : "INVALID" }}</td>
+    <td [class.invalid]="row.gender ? false : true">{{ row.gender ? row.gender : "INVALID" }}</td>
+    <td [class.invalid]="row.country ? false : true">{{ row.country ? row.country : "INVALID" }}</td>
+    <td [class.invalid]="row.mobile ? false : true">{{row.mobile ? row.mobile : "INVALID" }}</td>
+    <td [class.invalid]="row.pincode ? false : true">{{ row.pincode ? row.pincode : "INVALID" }}</td>
   </tr>
   <p>Total Rows: {{excelData.length}}</p>
 </table>
