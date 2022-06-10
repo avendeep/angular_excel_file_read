@@ -22,13 +22,14 @@ export class ExcelUploadComponent implements OnInit {
 
     for(let item of this.excelData){
        this.validatedData.push({
-         sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no:'INVALID' ),
-         firstname:(this.checkString(item.firstname)?item.firstname:'INVALID'),
-         lastname:(this.checkString(item.lastname)?item.lastname:'INVALID'),
-         gender:(this.checkString(item.gender)?item.gender:'INVALID'),
-         country:(this.checkString(item.country)?item.country:'INVALID'),
-         mobile:(this.checkMobileNum(item.mobile)?item.mobile:'INVALID'),
-         pincode:(this.checkPinCode(item.pincode)?item.pincode:'INVALID')
+         ...item,
+         sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'error'} ),
+         firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'error'}),
+         lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'error'}),
+         gender:(this.checkString(item.gender)?item.gender:{value:item.gender, error:'error'}),
+         country:(this.checkString(item.country)?item.country:{value:item.country, error:'error'}),
+         mobile:(this.checkMobileNum(item.mobile)?item.mobile:{value:item.mobile, error:'error'}),
+         pincode:(this.checkPinCode(item.pincode)?item.pincode:{value:item.pincode,error:'error'})
        })
     }
 
@@ -45,11 +46,23 @@ export class ExcelUploadComponent implements OnInit {
   }
 
   checkString(string:any){
-    if(!isNaN(string)){
-       return false;
-    }else{
+    // if(!isNaN(string)){
+    //    return false;
+    // }else{
+    //   this.isTableValid=false;
+    //   return true;
+    // }
+    let isnum = /^\d+$/.test(string);
+    if(isnum){
       this.isTableValid=false;
-      return true;
+      return false;
+    }else{
+      let isString = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(string);
+       if(isString){
+         return false;
+       }else{
+         return true
+       }
     }
   }
 

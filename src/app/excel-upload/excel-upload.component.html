@@ -8,6 +8,11 @@
     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
   />
 </form>
+<hr>
+<div>
+  <p>Total Rows: {{validatedData.length}}</p><br>
+  <p *ngIf="!isTableValid" class="invalid">Table contains some invalid data.</p>
+</div>
 <hr />
 <table *ngIf="excelData">
   <!--<span *ngFor="let item of excelData | keyvalue"></span>-->
@@ -22,19 +27,16 @@
   </tr>
 
   <tr *ngFor="let row of validatedData">
-    <td [className]="row.sl_no ==='INVALID' || row.sl_no === undefined? 'invalid' : ''">{{ row.sl_no ? row.sl_no : "INVALID" }}</td>
-    <td [className]="row.firstname==='INVALID' || row.firstname === undefined ? 'invalid' : ''">{{ row.firstname ? row.firstname : "INVALID" }}</td>
-    <td [className]="row.lastname ==='INVALID' || row.lastname === undefined ? 'invalid' : ''">{{ row.lastname ? row.lastname : "INVALID" }}</td>
-    <td [className]="row.gender ==='INVALID' || row.gender === undefined? 'invalid' : ''">{{ row.gender ? row.gender : "INVALID" }}</td>
-    <td [className]="row.country === 'INVALID' || row.country === undefined ? 'invalid' : ''">{{ row.country ? row.country : "INVALID" }}</td>
-    <td [className]="row.mobile ==='INVALID' || row.mobile === undefined? 'invalid' : ''">{{row.mobile ? row.mobile : "INVALID" }}</td>
-    <td [className]="row.pincode ==='INVALID' || row.pincode === undefined ? 'invalid' : ''">{{ row.pincode ? row.pincode : "INVALID" }}</td>
+    <td [className]="row.sl_no ==='INVALID' || row.sl_no === undefined? 'invalid' : ''">{{ row.sl_no.error? row.sl_no.value:row.sl_no }}</td>
+    <td [className]="row.firstname==='INVALID' || row.firstname === undefined ? 'invalid' : ''">{{ row.firstname.error? row.firstname.value:row.firstname }}</td>
+    <td [className]="row.lastname ==='INVALID' || row.lastname === undefined ? 'invalid' : ''">{{ row.lastname}}</td>
+    <td [className]="row.gender ==='INVALID' || row.gender === undefined? 'invalid' : ''">{{ row.gender}}</td>
+    <td [className]="row.country === 'INVALID' || row.country === undefined ? 'invalid' : ''">{{ row.country}}</td>
+    <td [className]="row.mobile ==='INVALID' || row.mobile === undefined? 'invalid' : ''">{{row.mobile}}</td>
+    <td [className]="row.pincode ==='INVALID' || row.pincode === undefined ? 'invalid' : ''">{{ row.pincode}}</td>
   </tr>
  
 </table>
 
-<div>
-  <p>Total Rows: {{validatedData.length}}</p><br>
-  <p *ngIf="!isTableValid" class="invalid">Table contains some invalid data.</p>
-</div>
+
 
