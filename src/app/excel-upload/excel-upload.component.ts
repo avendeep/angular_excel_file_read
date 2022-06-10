@@ -23,9 +23,9 @@ export class ExcelUploadComponent implements OnInit {
     for(let item of this.excelData){
        this.validatedData.push({
          
-         sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'error'} ),
-         firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'error'}),
-         lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'error'}),
+         sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'Sl.no should contain only positive numbers'} ),
+         firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'Firstname shouldn\'t any special caracters or numbers'}),
+         lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'Lastname shouldn\'t any special caracters or numbers'}),
          gender:(this.checkString(item.gender)?item.gender:{value:item.gender, error:'error'}),
          country:(this.checkString(item.country)?item.country:{value:item.country, error:'error'}),
          mobile:(this.checkMobileNum(item.mobile)?item.mobile:{value:item.mobile, error:'error'}),

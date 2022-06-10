@@ -26,17 +26,46 @@
     <th>Country</th>
     <th>Mobile</th>
     <th>pincode</th>
+    <th>Feedback</th>
   </tr>
 
-  <tr *ngFor="let row of validatedData">
-    <td >{{ row.sl_no.error? row.sl_no.value:row.sl_no }}</td>
+  <tr *ngFor="let row of validatedData" class="invalid-outline">
+
+
+    <td [className]="row.sl_no == undefined || row.sl_no.error? 'invalid': ''"
+    >{{ row.sl_no == undefined || row.sl_no.error?  row.sl_no==undefined? 'Empty cell': row.sl_no.value   :row.sl_no }}</td>
+
+    <td [className]="row.firstname== undefined || row.firstname.error? 'invalid': ''"
+    >{{ row.firstname == undefined || row.firstname.error?  row.firstname==undefined? 'Empty cell': row.firstname.value   :row.firstname }}</td>
+
+    <td  [className]="row.lastname== undefined || row.lastname.error? 'invalid': ''" 
+    >{{ row.lastname == undefined || row.lastname.error?  row.lastname==undefined? 'Empty cell': row.lastname.value   :row.lastname}}</td>
+
+    <td [className]="row.gender== undefined || row.gender.error? 'invalid': ''"
+    >{{ row.gender == undefined || row.gender.error?  row.gender==undefined? 'Empty cell': row.gender.value   :row.gender}}</td>
+
+    <td [className]="row.country== undefined || row.country.error? 'invalid': ''"
+    >{{ row.country == undefined || row.country.error?  row.country==undefined? 'Empty cell': row.country.value   :row.country }}</td>
+
+    <td [className]="row.mobile== undefined || row.mobile.error? 'invalid': ''"
+    >{{row.mobile == undefined || row.mobile.error?  row.mobile==undefined? 'Empty cell': row.mobile.value   :row.mobile}}</td>
+
+    <td [className]="row.pincode== undefined || row.pincode.error? 'invalid': ''"
+    >{{ row.pincode == undefined || row.pincode.error?  row.pincode==undefined? 'Empty cell': row.pincode.value   :row.pincode}}</td>
+
+    <td></td>
+  </tr>
+
+  <!-- <tr *ngFor="let row of validatedData">
+    <td [className]="row.sl_no == undefined || row.sl_no.error? 'invalid': ''"
+    >{{ row.sl_no.error? row.sl_no.value:row.sl_no }}</td>
     <td >{{ row.firstname.error? row.firstname.value:row.firstname }}</td>
     <td >{{ row.lastname.error? row.lastname.value:row.lastname}}</td>
     <td >{{ row.gender.error? row.gender.value:row.gender}}</td>
-    <td >{{ row.country === undefined ||row.country.error?  row.country===undefined? 'Empty cell': row.country.value   :row.country }}</td>
+    <td >{{ row.country == undefined || row.country.error?  row.country==undefined? 'Empty cell': row.country.value   :row.country }}</td>
     <td >{{row.mobile.error?row.mobile.value:row.mobile}}</td>
     <td >{{ row.pincode.error?row.pincode.value:row.pincode}}</td>
-  </tr>
+  </tr> -->
  
 </table>
 
