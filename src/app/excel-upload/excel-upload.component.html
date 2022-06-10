@@ -26,10 +26,10 @@
     <th>Country</th>
     <th>Mobile</th>
     <th>pincode</th>
-    <th>Feedback</th>
+    <th style="width:25%">Feedback</th>
   </tr>
 
-  <tr *ngFor="let row of validatedData" class="invalid-outline">
+  <tr *ngFor="let row of validatedData"  >
 
 
     <td [className]="row.sl_no == undefined || row.sl_no.error? 'invalid': ''"
@@ -53,7 +53,17 @@
     <td [className]="row.pincode== undefined || row.pincode.error? 'invalid': ''"
     >{{ row.pincode == undefined || row.pincode.error?  row.pincode==undefined? 'Empty cell': row.pincode.value   :row.pincode}}</td>
 
-    <td></td>
+    <td class="table-data-error">
+      {{row.sl_no == undefined || row.sl_no.error ? row.sl_no == undefined ?'Sl.no shouldn\'t be empty':row.sl_no.error : '' }} <br>
+      {{row.firstname == undefined || row.firstname.error ? row.firstname == undefined ?'Firstname shouldn\'t be empty':row.firstname.error : '' }}<br>
+      {{row.lastname == undefined || row.lastname.error ? row.lastname == undefined ?'Lastname shouldn\'t be empty':row.lastname.error : '' }}<br>
+      {{row.gender == undefined || row.gender.error ? row.gender == undefined ?'gender shouldn\'t be empty':row.gender.error : '' }}<br>
+      {{row.country == undefined || row.country.error ? row.country == undefined ?'country shouldn\'t be empty':row.country.error : '' }}<br>
+      {{row.mobile == undefined || row.mobile.error ? row.mobile == undefined ?'Mobile shouldn\'t be empty':row.mobile.error : '' }}<br>
+      {{row.pincode == undefined || row.pincode.error ? row.pincode == undefined ?'Pincode shouldn\'t be empty':row.pincode.error : '' }}<br>
+      
+    </td>
+  
   </tr>
 
   <!-- <tr *ngFor="let row of validatedData">

@@ -29,7 +29,11 @@ table {
     background-color: lightsalmon;
   }
 
-  .invalid-outline{
+  tr.invalid-outline{
     border: 1px solid red;
-    color: black;
+    background-color: lightpink;
+  }
+
+  .table-data-error{
+    color: brown;
   }
