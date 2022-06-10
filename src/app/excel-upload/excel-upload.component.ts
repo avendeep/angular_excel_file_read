@@ -22,7 +22,7 @@ export class ExcelUploadComponent implements OnInit {
 
     for(let item of this.excelData){
        this.validatedData.push({
-         ...item,
+         
          sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'error'} ),
          firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'error'}),
          lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'error'}),
