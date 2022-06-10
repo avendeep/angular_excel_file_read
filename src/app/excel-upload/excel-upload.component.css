@@ -24,7 +24,6 @@ table {
   } */
 
   .invalid{
-    border: 1px solid red;
     color: black;
     background-color: lightsalmon;
   }

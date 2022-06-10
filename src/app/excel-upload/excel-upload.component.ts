@@ -46,19 +46,16 @@ export class ExcelUploadComponent implements OnInit {
   }
 
   checkString(string:any){
-    // if(!isNaN(string)){
-    //    return false;
-    // }else{
-    //   this.isTableValid=false;
-    //   return true;
-    // }
-    let isnum = /^\d+$/.test(string);
+    const toStr = String(string)
+    const trimmed = toStr.trim()
+    let isnum = /^\d+$/.test(trimmed);
     if(isnum){
       this.isTableValid=false;
       return false;
     }else{
-      let isString = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(string);
-       if(isString){
+      let isSpecialChar = /^[A-Za-z]+$/.test(trimmed);
+   ///[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+       if(!isSpecialChar){
          return false;
        }else{
          return true
