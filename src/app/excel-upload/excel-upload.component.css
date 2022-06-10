@@ -37,3 +37,7 @@ table {
   .table-data-error{
     color: brown;
   }
+
+  td{
+    text-align: center;
+  }
