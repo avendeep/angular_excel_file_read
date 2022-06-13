@@ -22,7 +22,7 @@ export class ExcelUploadComponent implements OnInit {
 
     for(let item of this.excelData){
        this.validatedData.push({
-         //if the cell is empty in excel file then item.<column_name> will be undefined.
+         //if the cell is empty in excel sheet then item.<column_name> will be undefined.
          sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'Sl.no shouldn\'t be special/character or -ve number'} ),
          firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'Firstname shouldn\'t contain any special characters or numbers'}),
          lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'Lastname shouldn\'t contain any special characters or numbers'}),
@@ -56,8 +56,11 @@ export class ExcelUploadComponent implements OnInit {
       let isSpecialChar = /^[A-Za-z]+$/.test(trimmed);
    ///[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
        if(!isSpecialChar){
+        this.isTableValid=false;
          return false;
+         
        }else{
+        
          return true
        }
     }

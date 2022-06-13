@@ -12,12 +12,11 @@
 <div>
   <p>Total Rows: {{validatedData.length}}</p><br>
   <p *ngIf="!isTableValid" class="invalid">Table contains some invalid data.</p>
+  <p *ngIf="isTableValid && excelData" class="valid">Table data is OK.</p>
 </div>
 <hr />
 <table *ngIf="excelData">
-  <!--<span *ngFor="let item of excelData | keyvalue"></span>
-  [className]="row.pincode ==='INVALID' || row.pincode === undefined ? 'invalid' : ''"
-  -->
+  
   <tr>
     <th>SL No.</th>
     <th>Firstname</th>
@@ -65,16 +64,6 @@
   
   </tr>
 
-  <!-- <tr *ngFor="let row of validatedData">
-    <td [className]="row.sl_no == undefined || row.sl_no.error? 'invalid': ''"
-    >{{ row.sl_no.error? row.sl_no.value:row.sl_no }}</td>
-    <td >{{ row.firstname.error? row.firstname.value:row.firstname }}</td>
-    <td >{{ row.lastname.error? row.lastname.value:row.lastname}}</td>
-    <td >{{ row.gender.error? row.gender.value:row.gender}}</td>
-    <td >{{ row.country == undefined || row.country.error?  row.country==undefined? 'Empty cell': row.country.value   :row.country }}</td>
-    <td >{{row.mobile.error?row.mobile.value:row.mobile}}</td>
-    <td >{{ row.pincode.error?row.pincode.value:row.pincode}}</td>
-  </tr> -->
  
 </table>
 

@@ -26,6 +26,13 @@ table {
   .invalid{
     color: black;
     background-color: lightsalmon;
+    padding:10px;
+  }
+
+  .valid{
+    background-color: lightgreen;
+    padding:10px;
+   
   }
 
   tr.invalid-outline{
