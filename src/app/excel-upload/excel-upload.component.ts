@@ -22,14 +22,14 @@ export class ExcelUploadComponent implements OnInit {
 
     for(let item of this.excelData){
        this.validatedData.push({
-         
+         //if the cell is empty in excel file then item.<column_name> will be undefined.
          sl_no: (this.checkPositiveInt(item.sl_no)?item.sl_no: {value:item.sl_no, error:'Sl.no shouldn\'t be special/character or -ve number'} ),
          firstname:(this.checkString(item.firstname)?item.firstname:{value:item.firstname, error:'Firstname shouldn\'t contain any special characters or numbers'}),
          lastname:(this.checkString(item.lastname)?item.lastname:{value:item.lastname,error:'Lastname shouldn\'t contain any special characters or numbers'}),
          gender:(this.checkString(item.gender)?item.gender:{value:item.gender, error:'gender shouldn\'t contain any special characters or numbers'}),
          country:(this.checkString(item.country)?item.country:{value:item.country, error:'country shouldn\'t contain any special characters or numbers'}),
-         mobile:(this.checkMobileNum(item.mobile)?item.mobile:{value:item.mobile, error:'Mobile number should ony be 10 digits and should\'t be any special character'}),
-         pincode:(this.checkPinCode(item.pincode)?item.pincode:{value:item.pincode,error:'pincode should ony be 6 digits and should\'t any special character'})
+         mobile:(this.checkMobileNum(item.mobile)?item.mobile:{value:item.mobile, error:'Mobile number should ony be 10 digits and shouldn\'t be any special character'}),
+         pincode:(this.checkPinCode(item.pincode)?item.pincode:{value:item.pincode,error:'pincode should ony be 6 digits and shouldn\'t be any special character'})
        })
     }
 

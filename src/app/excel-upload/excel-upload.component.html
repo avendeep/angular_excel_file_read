@@ -29,8 +29,7 @@
     <th style="width:25%">Feedback</th>
   </tr>
 
-  <tr *ngFor="let row of validatedData"  >
-
+  <tr *ngFor="let row of validatedData" >
 
     <td [className]="row.sl_no == undefined || row.sl_no.error? 'invalid': ''"
     >{{ row.sl_no == undefined || row.sl_no.error?  row.sl_no==undefined? 'Empty cell': row.sl_no.value   :row.sl_no }}</td>
